@@ -12,6 +12,9 @@ services:
       - PODCAST_TITLE=${PODCAST_TITLE:-Listen Later}
       - PODCAST_AUTHOR=${PODCAST_AUTHOR:-Listen Later RSS}
       - PODCAST_DESCRIPTION=${PODCAST_DESCRIPTION:-Videos saved for later listening}
+      - COOKIES_FROM_BROWSER=${COOKIES_FROM_BROWSER:-}
+      - COOKIES_FILE=${COOKIES_FILE:-}
+      - YTDLP_PATH=${YTDLP_PATH:-yt-dlp}
     restart: unless-stopped
 
 volumes:

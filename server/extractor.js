@@ -1,8 +1,17 @@
 import { spawn } from 'child_process';
+import { config } from './config.js';
+
+function baseArgs() {
+  const args = ['--js-runtimes', 'node', '--remote-components', 'ejs:github'];
+  if (config.cookiesFromBrowser) args.push('--cookies-from-browser', config.cookiesFromBrowser);
+  if (config.cookiesFile) args.push('--cookies', config.cookiesFile);
+  return args;
+}
 
 export function getVideoMetadata(url) {
   return new Promise((resolve, reject) => {
-    const proc = spawn('yt-dlp', ['--dump-json', '--no-download', '--no-playlist', url]);
+    const args = ['--dump-json', '--no-download', '--no-playlist', ...baseArgs(), url];
+    const proc = spawn(config.ytdlpPath, args);
     let stdout = '';
     let stderr = '';
     proc.stdout.on('data', (chunk) => { stdout += chunk; });
@@ -28,15 +37,17 @@ export function getVideoMetadata(url) {
 
 export function extractAudio(url, outputPath) {
   return new Promise((resolve, reject) => {
-    const proc = spawn('yt-dlp', [
+    const args = [
       '-x',
       '--audio-format', 'mp3',
       '--audio-quality', '0',
       '--no-playlist',
       '--no-warnings',
+      ...baseArgs(),
       '-o', outputPath,
       url,
-    ]);
+    ];
+    const proc = spawn(config.ytdlpPath, args);
     let stderr = '';
     proc.stderr.on('data', (chunk) => { stderr += chunk; });
     proc.on('close', (code) => {

@@ -32,6 +32,9 @@ function loadOrCreateConfig() {
     podcastTitle: process.env.PODCAST_TITLE || 'Listen Later',
     podcastAuthor: process.env.PODCAST_AUTHOR || 'Listen Later RSS',
     podcastDescription: process.env.PODCAST_DESCRIPTION || 'Videos saved for later listening',
+    ytdlpPath: process.env.YTDLP_PATH || 'yt-dlp',
+    cookiesFromBrowser: process.env.COOKIES_FROM_BROWSER || '',  // e.g. "chrome", "firefox"
+    cookiesFile: process.env.COOKIES_FILE || '',                  // path to cookies.txt
   };
 
   // Persist API key so it survives restarts
