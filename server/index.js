@@ -34,6 +34,13 @@ app.get('/artwork.png', (_req, res) => {
   res.sendFile(join(__dirname, 'artwork.png'));
 });
 
+// iOS Shortcut download
+app.get('/shortcut', (_req, res) => {
+  res.set('Content-Type', 'application/octet-stream');
+  res.set('Content-Disposition', 'attachment; filename="Listen Later.shortcut"');
+  res.sendFile(join(__dirname, 'ListenLater.shortcut'));
+});
+
 // Audio files
 app.get('/audio/:filename', (req, res) => {
   const filePath = join(config.dataDir, 'audio', req.params.filename);
