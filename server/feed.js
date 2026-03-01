@@ -56,6 +56,7 @@ export function generateFeed() {
     <atom:link href="${escapeXml(config.baseUrl)}/feed" rel="self" type="application/rss+xml"/>
     <itunes:author>${escapeXml(config.podcastAuthor)}</itunes:author>
     <itunes:summary>${escapeXml(config.podcastDescription)}</itunes:summary>
+    <itunes:image href="${escapeXml(config.baseUrl)}/artwork.png"/>
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
 ${items}

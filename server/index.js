@@ -1,7 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from 'uuid';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 import { config } from './config.js';
 import { requireApiKey } from './auth.js';
 import { insertEpisode, findByUrl, getAllEpisodes } from './db.js';
@@ -24,6 +27,11 @@ app.get('/feed', (_req, res) => {
   const xml = generateFeed();
   res.set('Content-Type', 'application/rss+xml; charset=utf-8');
   res.send(xml);
+});
+
+// Podcast artwork
+app.get('/artwork.png', (_req, res) => {
+  res.sendFile(join(__dirname, 'artwork.png'));
 });
 
 // Audio files
