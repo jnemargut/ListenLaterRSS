@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Listen Later RSS</h1>
+
+    <div class="field">
+      <label for="backendUrl">Backend URL</label>
+      <input type="url" id="backendUrl" placeholder="https://your-server.com">
+    </div>
+
+    <div class="field">
+      <label for="apiKey">API Key</label>
+      <input type="password" id="apiKey" placeholder="Your API key">
+    </div>
+
+    <button id="save" class="btn-save">Save Settings</button>
+
+    <div id="status" class="status" hidden></div>
+
+    <div id="feedSection" class="feed-section" hidden>
+      <label>Your Feed URL</label>
+      <div class="feed-row">
+        <input type="text" id="feedUrl" readonly>
+        <button id="copyFeed" class="btn-copy" title="Copy feed URL">Copy</button>
+      </div>
+      <p class="hint">Add this URL to your podcast app</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

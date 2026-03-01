@@ -1,0 +1,39 @@
+.listen-later-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  height: 36px;
+  border: none;
+  border-radius: 18px;
+  background: #065fd4;
+  color: #fff;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.listen-later-btn:hover {
+  background: #0556bf;
+}
+
+.listen-later-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.listen-later-btn--saving {
+  background: #606060;
+}
+
+.listen-later-btn--saved {
+  background: #2e7d32;
+}
+
+.listen-later-btn--error {
+  background: #c62828;
+}

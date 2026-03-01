@@ -1,0 +1,18 @@
+services:
+  listen-later:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    volumes:
+      - listen-later-data:/app/data
+    environment:
+      - PORT=3000
+      - BASE_URL=${BASE_URL:-http://localhost:3000}
+      - API_KEY=${API_KEY:-}
+      - PODCAST_TITLE=${PODCAST_TITLE:-Listen Later}
+      - PODCAST_AUTHOR=${PODCAST_AUTHOR:-Listen Later RSS}
+      - PODCAST_DESCRIPTION=${PODCAST_DESCRIPTION:-Videos saved for later listening}
+    restart: unless-stopped
+
+volumes:
+  listen-later-data:

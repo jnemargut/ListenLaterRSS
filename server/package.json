@@ -1,0 +1,16 @@
+{
+  "name": "listen-later-rss-server",
+  "version": "1.0.0",
+  "description": "Backend server for Listen Later RSS - save YouTube audio to a podcast feed",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "uuid": "^10.0.0"
+  }
+}
